@@ -1,0 +1,129 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-image/iron-image.html">
+
+<!--
+`media-image`
+A LRN element
+
+@demo demo/index.html
+-->
+
+<dom-module id="media-image">
+  <template>
+    <style>
+       :host {
+        display: block;
+        font-family: "Roboto", sans-serif;
+        width: 100%;
+      }
+
+       :host[align="left"] {
+        float: left;
+      }
+
+       :host[align="center"] {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+       :host[align="right"] {
+        float: right;
+      }
+
+       :host[size="wide"] {}
+
+       :host[size="small"] {}
+
+      @media screen and (min-width: 450px) {
+         :host[size="small"] {
+          max-width: 50%;
+        }
+      }
+
+      @media screen and (min-width: 650px) {
+         :host[size="small"] {
+          max-width: 35%;
+        }
+      }
+
+      @media screen and (min-width: 900px) {
+         :host[size="small"] {
+          max-width: 25%;
+        }
+      }
+
+      .citation {
+        font-size: .8rem;
+        font-style: italic;
+        color: #4c4c4c;
+        margin: 15px 0 15px;
+      }
+
+      .caption {
+        padding-bottom: 25px;
+        border-bottom: dashed 2px lightgray;
+        margin-bottom: 25px;
+        line-height: 1.5;
+        font-size: 18px;
+      }
+
+      iron-image {
+        width: 100%;
+        --iron-image-width: 100%;
+      }
+    </style>
+
+    <div id="element-wrap"></div>
+    <div class="image-wrapper">
+      <iron-image src="{{src}}"></iron-image>
+    </div>
+    <div class="citation">{{citation}}</div>
+    <div class="caption">
+      <slot name="caption"></slot>
+    </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'media-image',
+
+      properties: {
+        /**
+         * Image source.
+        */
+        src: {
+          type: String,
+          reflectToAttribute: true,
+          notify: true,
+        },
+        /**
+         * Image citation.
+        */
+        citation: {
+          type: String,
+          reflectToAttribute: true,
+          notify: true,
+        },
+        /**
+         * Image align (left, center, right).
+        */
+        align: {
+          type: String,
+          value: 'left',
+          reflectToAttribute: true,
+          notify: true
+        },
+        /**
+         * The size of the image (small, wide).
+        */
+        size: {
+          type: String,
+          value: 'wide'
+        }
+      },
+
+    });
+  </script>
+</dom-module>
