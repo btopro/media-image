@@ -17,7 +17,7 @@
   </head>
   <body>
     <div class="vertical-section-container">
-      <h3>Basic media-image demo (left)</h3>
+      <h3>Basic media-image demo (default position-left)</h3>
       <demo-snippet >
         <template>
           <media-image src="http://unsplash.it/200" citation="This is my citation" size="small">
@@ -28,7 +28,6 @@
         </template>
       </demo-snippet>
     </div>
-
     <div class="vertical-section-container">
         <h3>Basic media-image demo (center)</h3>
         <demo-snippet >
@@ -41,7 +40,18 @@
           </template>
         </demo-snippet>
       </div>
-
+      <div class="vertical-section-container">
+        <h3>Basic media-image demo (center position - round)</h3>
+        <demo-snippet >
+          <template>
+            <media-image src="http://unsplash.it/200" citation="This is my citation" align="center" size="small" shape="round">
+              <div slot="caption">
+                Curabitur aliquet quam id dui posuere blandit. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Donec sollicitudin molestie malesuada. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.
+              </div>
+            </media-image>
+          </template>
+        </demo-snippet>
+      </div>
       <div class="vertical-section-container">
           <h3>Basic media-image demo (right)</h3>
           <demo-snippet >
@@ -54,7 +64,6 @@
             </template>
           </demo-snippet>
         </div>
-
         <div class="vertical-section-container">
             <h3>Basic media-image demo (wide)</h3>
             <demo-snippet >

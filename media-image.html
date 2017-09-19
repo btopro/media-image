@@ -71,6 +71,11 @@ A LRN element
         width: 100%;
         --iron-image-width: 100%;
       }
+
+
+       :host[shape="round"] iron-image {
+        border-radius: 50%;
+      }
     </style>
 
     <div id="element-wrap"></div>
@@ -113,14 +118,25 @@ A LRN element
           type: String,
           value: 'left',
           reflectToAttribute: true,
-          notify: true
+          notify: true,
         },
         /**
          * The size of the image (small, wide).
         */
         size: {
           type: String,
-          value: 'wide'
+          value: 'small',
+          reflectToAttribute: true,
+          notify: true,
+        },
+        /**
+         * The shape of the image (rounded).
+        */
+        shape: {
+          type: String,
+          value: 'square',
+          reflectToAttribute: true,
+          notify: true,
         }
       },
 
