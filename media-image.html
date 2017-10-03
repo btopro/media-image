@@ -17,6 +17,16 @@ A LRN element
         width: 100%;
       }
 
+       :host[card="true"] {
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.14);
+        padding: 20px;
+      }
+
+      :host[box="true"] {
+        background-color: #f7f6ef;
+        padding: 20px;
+      }
+
        :host[align="left"] {
         float: left;
       }
@@ -135,6 +145,24 @@ A LRN element
         shape: {
           type: String,
           value: 'square',
+          reflectToAttribute: true,
+          notify: true,
+        },
+        /**
+         * Applies card styling.
+        */
+        card: {
+          type: String,
+          value: '',
+          reflectToAttribute: true,
+          notify: true,
+        },
+        /**
+         * Applies box styling.
+        */
+        box: {
+          type: String,
+          value: '',
           reflectToAttribute: true,
           notify: true,
         }
