@@ -1,5 +1,10 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-image/iron-image.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../lrnsys-layout/lrnsys-layout.html">
+<link rel="import" href="../lrnsys-layout/lrnsys-dialog.html">
+<link rel="import" href="../lrnsys-layout/lrnsys-dialog-toolbar.html">
+<link rel="import" href="../img-pan-zoom/img-pan-zoom.html">
 
 <!--
 `media-image`
@@ -22,7 +27,7 @@ A LRN element
         padding: 20px;
       }
 
-      :host[box="true"] {
+       :host[box="true"] {
         background-color: #f7f6ef;
         padding: 20px;
       }
@@ -83,20 +88,24 @@ A LRN element
       }
 
 
-       :host[shape="round"] iron-image {
+       :host[round="true"] iron-image {
         border-radius: 50%;
       }
     </style>
 
-    <div id="element-wrap"></div>
-    <div class="image-wrapper">
-      <iron-image src="{{src}}"></iron-image>
-    </div>
+
+
+
+
+    <iron-image src="{{src}}"></iron-image>
+
     <div class="citation">{{citation}}</div>
     <div class="caption">
       <slot name="caption"></slot>
     </div>
-    </div>
+
+
+
   </template>
 
   <script>
@@ -142,7 +151,7 @@ A LRN element
         /**
          * The shape of the image (round).
         */
-        shape: {
+        round: {
           type: String,
           value: 'square',
           reflectToAttribute: true,
