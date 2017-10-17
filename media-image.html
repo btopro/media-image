@@ -17,53 +17,54 @@ A LRN element
 <dom-module id="media-image">
   <template>
     <style>
-       :host {
+      :host {
         display: block;
         font-family: "Roboto", sans-serif;
         width: 100%;
+        --box-background-color: #f7f6ef;
       }
 
-       :host[card="true"] {
+      :host[card="true"] {
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.14);
         padding: 20px;
       }
 
-       :host[box="true"] {
-        background-color: #f7f6ef;
+      :host[box="true"] {
+        background-color:var(--box-background-color);
         padding: 20px;
       }
 
-       :host[align="left"] {
+      :host[align="left"] {
         float: left;
       }
 
-       :host[align="center"] {
+      :host[align="center"] {
         margin-left: auto;
         margin-right: auto;
       }
 
-       :host[align="right"] {
+      :host[align="right"] {
         float: right;
       }
 
-       :host[size="wide"] {}
-
-       :host[size="small"] {}
+      :host[round="true"] iron-image {
+        border-radius: 50%;
+      }
 
       @media screen and (min-width: 450px) {
-         :host[size="small"] {
+        :host[size="small"] {
           max-width: 50%;
         }
       }
 
       @media screen and (min-width: 650px) {
-         :host[size="small"] {
+        :host[size="small"] {
           max-width: 35%;
         }
       }
 
       @media screen and (min-width: 900px) {
-         :host[size="small"] {
+        :host[size="small"] {
           max-width: 25%;
         }
       }
@@ -87,23 +88,13 @@ A LRN element
         width: 100%;
         --iron-image-width: 100%;
       }
-
-
-       :host[round="true"] iron-image {
-        border-radius: 50%;
-      }
     </style>
 
-
-      <iron-image src="{{src}}"></iron-image>
-
-
+    <iron-image src="{{src}}"></iron-image>
     <div class="citation">{{citation}}</div>
     <div class="caption">
       <slot name="caption"></slot>
     </div>
-
-
 
   </template>
 
@@ -119,7 +110,6 @@ A LRN element
         src: {
           type: String,
           reflectToAttribute: true,
-          notify: true,
         },
         /**
          * Image citation.
@@ -127,7 +117,6 @@ A LRN element
         citation: {
           type: String,
           reflectToAttribute: true,
-          notify: true,
         },
         /**
          * Image align (left, center, right).
@@ -136,7 +125,6 @@ A LRN element
           type: String,
           value: 'left',
           reflectToAttribute: true,
-          notify: true,
         },
         /**
          * The size of the image (small, wide).
@@ -145,7 +133,6 @@ A LRN element
           type: String,
           value: 'wide',
           reflectToAttribute: true,
-          notify: true,
         },
         /**
          * The shape of the image (round).
@@ -154,25 +141,20 @@ A LRN element
           type: String,
           value: 'square',
           reflectToAttribute: true,
-          notify: true,
         },
         /**
          * Applies card styling.
         */
         card: {
           type: String,
-          value: '',
           reflectToAttribute: true,
-          notify: true,
         },
         /**
          * Applies box styling.
         */
         box: {
           type: String,
-          value: '',
           reflectToAttribute: true,
-          notify: true,
         }
       },
 
