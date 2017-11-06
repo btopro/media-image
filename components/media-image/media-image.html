@@ -1,0 +1,165 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-image/iron-image.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../lrnsys-layout/lrnsys-layout.html">
+<link rel="import" href="../lrnsys-layout/lrnsys-dialog.html">
+<link rel="import" href="../lrnsys-layout/lrnsys-dialog-toolbar.html">
+<link rel="import" href="../lrnsys-layout/lrnsys-dialog-toolbar-button.html">
+<link rel="import" href="../img-pan-zoom/img-pan-zoom.html">
+
+<!--
+`media-image`
+A LRN element
+
+@demo demo/index.html
+-->
+
+<dom-module id="media-image">
+  <template>
+    <style>
+      :host {
+        display: block;
+        font-family: "Roboto", sans-serif;
+        width: 100%;
+        --box-background-color: #f7f6ef;
+      }
+
+      :host[card="true"] {
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.14);
+        padding: 20px;
+      }
+
+      :host[box="true"] {
+        background-color:var(--box-background-color);
+        padding: 20px;
+      }
+
+      :host[align="left"] {
+        float: left;
+      }
+
+      :host[align="center"] {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      :host[align="right"] {
+        float: right;
+      }
+
+      :host[round="true"] iron-image {
+        border-radius: 50%;
+      }
+
+      @media screen and (min-width: 450px) {
+        :host[size="small"] {
+          max-width: 50%;
+        }
+      }
+
+      @media screen and (min-width: 650px) {
+        :host[size="small"] {
+          max-width: 35%;
+        }
+      }
+
+      @media screen and (min-width: 900px) {
+        :host[size="small"] {
+          max-width: 25%;
+        }
+      }
+
+      .citation {
+        font-size: .8rem;
+        font-style: italic;
+        color: #4c4c4c;
+        margin: 15px 0 15px;
+      }
+
+      .caption {
+        padding-bottom: 25px;
+        border-bottom: dashed 2px lightgray;
+        margin-bottom: 25px;
+        line-height: 1.5;
+        font-size: 18px;
+      }
+
+      iron-image {
+        width: 100%;
+        --iron-image-width: 100%;
+      }
+    </style>
+
+    <iron-image src="{{src}}"></iron-image>
+    <div class="citation">{{citation}}</div>
+    <div class="caption">
+      <slot name="caption"></slot>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'media-image',
+
+      properties: {
+        /**
+         * Image source.
+        */
+        src: {
+          type: String,
+          reflectToAttribute: true,
+        },
+        /**
+         * Image citation.
+        */
+        citation: {
+          type: String,
+          reflectToAttribute: true,
+        },
+        /**
+         * Image align (left, center, right).
+        */
+        align: {
+          type: String,
+          value: 'left',
+          reflectToAttribute: true,
+        },
+        /**
+         * The size of the image (small, wide).
+        */
+        size: {
+          type: String,
+          value: 'wide',
+          reflectToAttribute: true,
+        },
+        /**
+         * The shape of the image (round).
+        */
+        round: {
+          type: String,
+          value: 'square',
+          reflectToAttribute: true,
+        },
+        /**
+         * Applies card styling.
+        */
+        card: {
+          type: String,
+          value: 'false',
+          reflectToAttribute: true,
+        },
+        /**
+         * Applies box styling.
+        */
+        box: {
+          type: String,
+          value: 'false',
+          reflectToAttribute: true,
+        }
+      },
+
+    });
+  </script>
+</dom-module>
